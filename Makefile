@@ -12,7 +12,9 @@ SRC =	src/main.c \
 		src/check_health.c \
 		src/libft.c \
 		src/lifestyle.c \
-		src/mutex_handling.c
+		src/mutex_handling.c \
+		src/time.c \
+		src/structure.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)

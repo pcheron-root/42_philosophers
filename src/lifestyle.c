@@ -6,7 +6,7 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:09:14 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/24 18:27:48 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/07/26 21:04:06 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ bool	ft_handle_direction_lock(t_philo *philo)
 			return (pthread_mutex_unlock(philo->left_fork), false);
 		pthread_mutex_lock(philo->right_fork);
 		if (!ft_print(philo, 3))
-			return (pthread_mutex_unlock(philo->left_fork), pthread_mutex_unlock(philo->right_fork), false);
+			return (pthread_mutex_unlock(philo->left_fork),
+				pthread_mutex_unlock(philo->right_fork), false);
 	}
 	else
 	{
@@ -30,7 +31,8 @@ bool	ft_handle_direction_lock(t_philo *philo)
 			return (pthread_mutex_unlock(philo->right_fork), false);
 		pthread_mutex_lock(philo->left_fork);
 		if (!ft_print(philo, 3))
-			return (pthread_mutex_unlock(philo->left_fork), pthread_mutex_unlock(philo->right_fork), false);
+			return (pthread_mutex_unlock(philo->left_fork),
+				pthread_mutex_unlock(philo->right_fork), false);
 	}
 	return (true);
 }
@@ -40,7 +42,8 @@ bool	ft_eat(t_philo *philo)
 	if (!ft_handle_direction_lock(philo))
 		return (false);
 	if (!ft_print(philo, 0))
-		return (pthread_mutex_unlock(philo->right_fork), pthread_mutex_unlock(philo->left_fork), false);
+		return (pthread_mutex_unlock(philo->right_fork),
+			pthread_mutex_unlock(philo->left_fork), false);
 	pthread_mutex_lock(&philo->last_meal_m);
 	ft_get_time(&philo->last_meal_v);
 	pthread_mutex_unlock(&philo->last_meal_m);
@@ -74,7 +77,7 @@ bool	ft_memento_mori(t_table *table)
 	pthread_mutex_lock(&table->dead_m);
 	if (table->dead_v >= 0)
 		return (pthread_mutex_unlock(&table->dead_m), false);
-	pthread_mutex_unlock(&table->dead_m);	
+	pthread_mutex_unlock(&table->dead_m);
 	pthread_mutex_lock(&table->satiated_m);
 	if (table->satiated_v)
 		return (pthread_mutex_unlock(&table->satiated_m), false);

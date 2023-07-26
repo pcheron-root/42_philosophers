@@ -6,7 +6,7 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:44:43 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/24 17:59:17 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/07/26 21:22:35 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,12 @@ typedef struct s_table
 bool	ft_atoi(int *result, char *str);
 bool	ft_atol(long *result, char *str);
 bool	ft_get_time(long *time);
-bool	ft_usleep(long time);
 bool	ft_print(t_philo *philo, int option);
+
+// time
+bool	ft_usleep(long time);
+bool	ft_get_time(long *time);
+long	ft_clock(void);
 
 // lifestyle
 void	*ft_philo_lifestyle(t_philo *philo);
@@ -73,13 +77,15 @@ void	ft_check_health(t_table *table);
 
 // philo lifestyle
 void	*ft_philo_lifestyle(t_philo *philo);
+bool	ft_memento_mori(t_table *table);
 
 // mutex handling
 bool	ft_mutex_init(t_table *table);
+void	ft_destroy_all_mutex(t_table *table, int i, int j, int k);
 
-//
+// structure
+bool	ft_table_init(t_table *table);
 void	ft_table_clear(t_table *table);
-
-bool	ft_memento_mori(t_table *table);
+void	ft_clear_all(t_table *table);
 
 #endif
