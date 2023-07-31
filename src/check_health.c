@@ -60,12 +60,12 @@ bool	ft_are_they_alive(t_table *table)
 	i = 0;
 	while (i < table->nb_philo)
 	{
-		if (!ft_is_philo_alive(&table->philo[i]))
+		if (!ft_is_philo_alive(table->philo + i))
 		{
 			pthread_mutex_lock(&table->dead_m);
 			table->dead_v = i;
 			pthread_mutex_unlock(&table->dead_m);
-			ft_print(&table->philo[table->dead_v], 4);
+			ft_print(table->philo + i, 4);
 			return (false);
 		}
 		i++;

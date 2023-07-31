@@ -90,18 +90,19 @@ void	*ft_philo_lifestyle(t_philo *philo)
 	if (philo->table->nb_philo == 1)
 	{
 		pthread_mutex_lock(philo->left_fork);
-		ft_print(philo, 4);
+		ft_print(philo, 3);
 		while (ft_memento_mori(philo->table))
 			ft_usleep(125);
-		return (pthread_mutex_unlock(philo->left_fork), NULL);
+		pthread_mutex_unlock(philo->left_fork);
+		return (NULL);
 	}
 	while (ft_memento_mori(philo->table))
 	{
-		if (philo->id & 1)
+		if (!(philo->id & 1))
 			ft_usleep(500);
 		if (!ft_eat(philo))
 			break ;
-		ft_usleep(500);
+		ft_usleep(125);
 		if (!ft_sleep(philo))
 			break ;
 		if (!ft_print(philo, 2))

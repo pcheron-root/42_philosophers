@@ -52,7 +52,7 @@ typedef struct s_table
 	pthread_t		*spirit;
 	t_philo			*philo;
 	pthread_mutex_t	*fork;
-	pthread_mutex_t	print;
+	pthread_mutex_t	print_m;
 }	t_table;
 
 # define SYNTAX "./philo <nb_philo> \

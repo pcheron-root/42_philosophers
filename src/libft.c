@@ -79,15 +79,14 @@ bool	ft_print(t_philo *philo, int option)
 		"%ld %d is thinking\n",
 		"%ld %d has taken a fork\n",
 		"%ld %d died\n"};
+	long		time;
 
-	pthread_mutex_lock(&philo->table->print);
+	pthread_mutex_lock(&philo->table->print_m);
 	if (option != 4 && !ft_memento_mori(philo->table))
-		return (pthread_mutex_unlock(&philo->table->print), false);
-	printf(lookup[option], (ft_clock() - philo->table->time_start) / 1000,
+		return (pthread_mutex_unlock(&philo->table->print_m), false);
+	ft_get_time(&time);
+	printf(lookup[option], (time - philo->table->time_start) / 1000,
 		philo->id + 1);
-	pthread_mutex_unlock(&philo->table->print);
+	pthread_mutex_unlock(&philo->table->print_m);
 	return (true);
 }
-	// {
-	// }
-		// printf("wtf %ld et %ld\n", ft_clock(), philo->table->time_start);

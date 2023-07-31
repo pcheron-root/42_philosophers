@@ -25,13 +25,13 @@ bool	ft_get_time(long *time)
 	return (true);
 }
 
-long	ft_clock(void)
-{
-	struct timeval		time_val;
+// long	ft_clock(void)
+// {
+// 	struct timeval		time_val;
 
-	gettimeofday(&time_val, NULL);
-	return ((time_val.tv_sec * 1000000) + time_val.tv_usec);
-}
+// 	gettimeofday(&time_val, NULL);
+// 	return ((time_val.tv_sec * 1000000) + time_val.tv_usec);
+// }
 
 bool	ft_usleep(long time)
 {
