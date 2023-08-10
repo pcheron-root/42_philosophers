@@ -6,7 +6,7 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:09:14 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/26 21:04:06 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/08/10 20:42:41 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,10 @@ void	*ft_philo_lifestyle(t_philo *philo)
 			ft_usleep(500);
 		if (!ft_eat(philo))
 			break ;
-		ft_usleep(125);
 		if (!ft_sleep(philo))
 			break ;
+		ft_usleep((philo->table->time_to_eat > philo->table->time_to_sleep)
+			* (philo->table->time_to_eat - philo->table->time_to_sleep) + 125);
 		if (!ft_print(philo, 2))
 			break ;
 	}
