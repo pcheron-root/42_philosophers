@@ -6,23 +6,11 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 19:32:40 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/26 21:37:17 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/08/10 20:29:44 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
-
-// static void	ft_destroy_mutex_tab(pthread_mutex_t *mutex, int max)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < max)
-// 	{
-// 		pthread_mutex_destroy(mutex + i);
-// 		i++;
-// 	}
-// }
 
 void	ft_destroy_all_mutex(t_table *table, int i, int j, int k)
 {
@@ -46,7 +34,7 @@ void	ft_destroy_all_mutex(t_table *table, int i, int j, int k)
 		pthread_mutex_destroy(&table->philo[l].last_meal_m);
 		l++;
 	}
-	pthread_mutex_destroy(&table->print);
+	pthread_mutex_destroy(&table->print_m);
 	pthread_mutex_destroy(&table->dead_m);
 	pthread_mutex_destroy(&table->satiated_m);
 }
@@ -55,12 +43,12 @@ bool	ft_mutex_init(t_table *table)
 {
 	int	i;
 
-	if (pthread_mutex_init(&table->print, NULL) < 0)
+	if (pthread_mutex_init(&table->print_m, NULL) < 0)
 		return (false);
 	if (pthread_mutex_init(&table->dead_m, NULL) < 0)
-		return (pthread_mutex_destroy(&table->print), false);
+		return (pthread_mutex_destroy(&table->print_m), false);
 	if (pthread_mutex_init(&table->satiated_m, NULL) < 0)
-		return (pthread_mutex_destroy(&table->print),
+		return (pthread_mutex_destroy(&table->print_m),
 			pthread_mutex_destroy(&table->dead_m), false);
 	i = 0;
 	while (i < table->nb_philo)
