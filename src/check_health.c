@@ -6,13 +6,13 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:03:51 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/26 21:04:15 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/08/12 13:32:02 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-bool	ft_are_they_satiated(t_table *table)
+static inline bool	ft_are_they_satiated(t_table *table)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ bool	ft_are_they_satiated(t_table *table)
 	return (false);
 }
 
-bool	ft_is_philo_alive(t_philo *philo)
+static inline bool	ft_is_philo_alive(t_philo *philo)
 {
 	long	time;
 
@@ -53,7 +53,7 @@ bool	ft_is_philo_alive(t_philo *philo)
 	return (true);
 }
 
-bool	ft_are_they_alive(t_table *table)
+static inline bool	ft_are_they_alive(t_table *table)
 {
 	int	i;
 
@@ -79,7 +79,7 @@ void	ft_check_health(t_table *table)
 
 	usleep(125);
 	while (ft_are_they_alive(table) && !ft_are_they_satiated(table))
-		usleep(125);
+		usleep(800);
 	i = 0;
 	while (i < table->nb_philo)
 	{

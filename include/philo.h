@@ -6,7 +6,7 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 23:44:43 by pcheron           #+#    #+#             */
-/*   Updated: 2023/07/26 21:22:35 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/08/12 13:29:24 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_table
 // libft
 bool	ft_atoi(int *result, char *str);
 bool	ft_atol(long *result, char *str);
-bool	ft_get_time(long *time);
 bool	ft_print(t_philo *philo, int option);
 
 // time

@@ -6,13 +6,13 @@
 /*   By: pcheron <pcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 21:09:14 by pcheron           #+#    #+#             */
-/*   Updated: 2023/08/10 20:42:41 by pcheron          ###   ########.fr       */
+/*   Updated: 2023/08/12 13:27:24 by pcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
 
-bool	ft_handle_direction_lock(t_philo *philo)
+static inline bool	ft_handle_direction_lock(t_philo *philo)
 {
 	if (philo->id & 1)
 	{
@@ -37,7 +37,7 @@ bool	ft_handle_direction_lock(t_philo *philo)
 	return (true);
 }
 
-bool	ft_eat(t_philo *philo)
+static inline bool	ft_eat(t_philo *philo)
 {
 	if (!ft_handle_direction_lock(philo))
 		return (false);
@@ -64,7 +64,7 @@ bool	ft_eat(t_philo *philo)
 	return (true);
 }
 
-bool	ft_sleep(t_philo *philo)
+static inline bool	ft_sleep(t_philo *philo)
 {
 	if (!ft_print(philo, 1))
 		return (false);
