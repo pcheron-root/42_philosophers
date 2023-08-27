@@ -1,5 +1,5 @@
 
-![Uploading Screenshot from 2023-08-27 14-42-18.png…]()
+![Screenshot from 2023-08-27 14-42-18](https://github.com/pcheron-root/philosophers/assets/126467996/ba4d19a7-c00e-4d9a-9640-a8a1996c413f)
 
 # philosophers
 
