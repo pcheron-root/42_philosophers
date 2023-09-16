@@ -17,11 +17,16 @@
 
 💀 le philosophe qui mange le premier doit mourir 💀
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5fc7501f-7ec7-468a-962d-47a58dcc8b5d/Untitled.png)
+```bash
+./philo 4 350 200 50000
+```
+
+😴 le programme ne doit pas attendre la fin de <time_to_sleep> pour s'arreter 😴
 
 ```bash
 valgrind --tool=helgrind ./philo 4 450 200 200
 ```
+
 
 👹 helgrind ne doit pas afficher d’erreurs 👹
 
