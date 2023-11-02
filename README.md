@@ -2,14 +2,13 @@
 ![Screenshot from 2023-08-27 14-42-18](https://github.com/pcheron-root/philosophers/assets/126467996/ba4d19a7-c00e-4d9a-9640-a8a1996c413f)
 
 # philosophers
+In computer science, the dining philosophers problem is an exemple problem often used in concurrent algorithm design to illustrate symchronization issues and techniques for resolving them. 
 
 ## Table of contents
 - [Overview].(#Overview)
-- [Advancing tests](#🧙‍♂️ Avanced testing)
+- [Advancing tests](#🧙‍♂️-Avanced-testing)
 
 ## Overview
-
-In computer science, the dining philosophers problem is an exemple problem often used in concurrent algorithm design to illustrate symchronization issues and techniques for resolving them. 
 
 Philosophers dine together at the same table. Each philosopher has his own plate at the table. There is a fork between each plate. The dish served is a kind of spaghetti which has to be eaten with two forks. Each philosopher can only alternately eat, sleep and think. Moreover, a philosopher can only eat his spaghetti when he has both a left and right fork. Thus two forks will only be available when his two nearest neighbors are sleeping or thinking, not eating. After an individual philosopher finishes eating, he will put down both forks. The problem is how to design a regimen (a concurrent algorithm) such that no philosopher will starve; i.e., each can forever continue to alternate between eating and thinking, assuming that no philosopher can know when others may want to eat, sleep or think (an issue of incomplete information).
 
